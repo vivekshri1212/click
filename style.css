@@ -6,6 +6,23 @@
     scrollbar-width: none;
     
 }
+
+html{
+    scroll-behavior: smooth;
+}
+
+section{
+    scroll-margin-top: 110px;
+}
+
+#Review,
+#Contact,
+#Blogs{
+    min-height: 55vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
    
     #container{
        width: 100vw;
@@ -18,6 +35,7 @@
        font-family: sans-serif;
        border-bottom: 1px solid rgb(244, 231, 231);
        position:fixed;
+       z-index: 1000;
        justify-content: space-around;
        flex-direction: row;
     
@@ -33,8 +51,14 @@
         margin-top: 5px;
     } 
 
+    #container_box a{
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+    }
 
-     #container_div{
+
+    #container_div{
         display: flex;
         color: white;
         transition-duration: 1s;
@@ -48,6 +72,37 @@
         
     
     } 
+
+    #search-btn,
+    #cart-btn{
+        cursor: pointer;
+    }
+
+    .search-panel{
+        position: fixed;
+        top: 16vh;
+        right: 40px;
+        width: min(360px, calc(100vw - 40px));
+        padding: 16px;
+        background-color: #1c1c1c;
+        border: 1px solid #d3ad7f;
+        border-radius: 10px;
+        display: none;
+        z-index: 1001;
+    }
+
+    .search-panel.active{
+        display: block;
+    }
+
+    #search-box{
+        width: 100%;
+        padding: 12px 14px;
+        color: white;
+        border: 1px solid #555;
+        border-radius: 8px;
+        outline: none;
+    }
     
 
 
@@ -95,14 +150,33 @@
     background-size: cover;
     background-position: center;
     background-color: none;
-    padding-top: 3.5rem;
-    padding-left: 5rem;
-    
+    padding: 8rem 5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+}
+.hero-copy{
+    max-width: 650px;
+    background-color: transparent;
+    padding-top: 2rem;
+}
+.hero-visual{
+    flex-shrink: 0;
+    width: min(34vw, 440px);
+    background-color: transparent;
+}
+.hero-visual img{
+    width: 100%;
+    display: block;
+    background-color: transparent;
+    filter: drop-shadow(0 18px 30px rgba(0, 0, 0, 0.4));
+    border-radius: 24px;
 }
 .home h2{
      color: white;
     justify-content: left;
-    margin-top: 60px;
+    margin-top: 0;
     font-weight: bolder;
     font-size: 65px;
     
@@ -138,7 +212,7 @@ button :hover{
     display: flex;
     align-items: center;
     text-align: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap:5px ;
     background-color: rgb(9,9,9,0.156);
 }
@@ -166,6 +240,43 @@ button :hover{
     text-align: center;
     font-size: 32px;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@media (max-width: 900px){
+    .home{
+        height: auto;
+        min-height: 84vh;
+        padding: 8rem 1.5rem 3rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-copy{
+        max-width: 100%;
+        padding-top: 1rem;
+    }
+
+    .home h2{
+        font-size: 42px;
+        margin-left: 0;
+    }
+
+    .home p{
+        font-size: 22px;
+    }
+
+    .hero-visual{
+        width: min(80vw, 360px);
+    }
+
+    .container_book{
+        justify-content: center;
+    }
+
+    .about,
+    .us{
+        margin-top: 2rem;
+    }
 }
 
 .container_2{
@@ -286,6 +397,16 @@ button :hover{
         color: rgb(250, 246, 246);
         background-color:none;
         background-color: transparent;
+    }
+
+    .class1 h3,
+    .class2 h3,
+    .class3 h3,
+    .class4 h3,
+    .class_5 h3,
+    .class_6 h3{
+        color: white;
+        margin: 16px 0 8px;
     }
 
 
@@ -458,6 +579,10 @@ button :hover{
     transform: translateY(-10px);
 }
 
+.search-hidden{
+    display: none !important;
+}
+
 
 
     .container_menu{
@@ -473,7 +598,7 @@ button :hover{
     .contact-section {
     background: #111;
     color: white;
-    padding: 50px 20px;
+    padding: 80px 20px;
     text-align: center;
 }
 
@@ -537,4 +662,15 @@ button :hover{
     padding: 5px 8px;
     color: white;
     cursor: pointer;
+}
+
+.cart-status{
+    color: #d3ad7f;
+    margin: 12px 0;
+    min-height: 20px;
+    font-size: 14px;
+}
+
+#save-cart-btn{
+    margin-right: 10px;
 }

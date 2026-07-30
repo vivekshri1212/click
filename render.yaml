@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: coffee-shop-app
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: DB_NAME
+        value: frontend_store
+      - key: MONGODB_URI
+        sync: false
